@@ -1,0 +1,66 @@
+Theme: Incorrect Technical implementation
+- incorrect technical implementation (R_1)
+  An implementation was incorrect which causes the problem.
+  Codes: incorrect implementation / incomplete implementation / wrong code applied by mistake / implementation is for their use case correct / other
+
+Theme: reasons for lack of remediation
+- lack of awareness (R_2)
+  The domain owner lacks awareness of the problem, either because the domain owner thinks there is no privacy/security issue or the domain owner thinks the problem is not existent
+  Codes: not an issue / already implemented / other
+- ambiguous responsibilities (R_3)
+  The responsibilities for the domain or the problem are not clear, so nobody took care of the problem
+  Codes: not aware of responsibility / responsible person not available / other
+- problem outside of influence (R_4)
+  The problem lies outside the influence of the domain owner
+  Codes: problem lies with third-party provider / problem lies with external service provider / other
+- reliance on other's judgments (R_5)
+  The domain owner relied on the expertise of others
+  Codes: relied on certification / relied on information of external service provider / relied on information of friends / default settings taken / other
+- deliberate lack of maintenance (R_6)
+  The domain has deliberately not been maintained
+  Codes: domain has not been maintained for a long time / domain was set up a long time ago / domain has no priority / domain is currently being revised or new domain is being created / other
+
+Theme: Approaches
+- implementation (A_1)
+  Did the domain owner make the changes themselves or with the help of an external?
+  Codes: implement changes themselves / implement changes with support / delegate implementation of changes / do not implement changes / other
+    - kind of support (A_1-1)
+    [Only if A_1 "implement changes with support" or "delegate implementation of change"] 
+    If the domain owner seeks support what kind of support is this?
+    Codes: legal support / technical support / other
+    - support instance (A_1-2)
+    [Only if A_1 "implement changes with support" or "delegate implementation of change"] 
+    What kind of instance does the named support belong to?
+    Codes: study organizer / professional IT person / private IT person / domain provider / hosting provider / other
+
+Theme: Challenges
+- lack of resources (C_1)
+  The lack of resources delays or hinders the remediation of the problem.
+  Code: personal reasons / domain is not daily business / no money for professional help / other
+- lack of technical knowledge (C_2)
+  The lack of technical knowledge delays or hinders the remediation of the problem
+  Codes: difficult to keep up to date / lack of technical knowledge / other
+- problems with code (C_3)
+  Technical problems exist that delay or hinder the remediation of the problem?
+  Codes: trouble solving the problem / error cannot be found / other
+- dependencies and slow process in organizations (C_4)
+  There are some dependencies or in general slow processes that slow down the remediation process
+  Codes: responsible person currently not available / domain is not actively maintained / complex coordination with other stakeholders / other entity needed for fix / other
+
+Theme: Sentiment Analysis
+- tone (S_1)
+  The overall tone of the response email. Only use one code, if there seem to be contradicting tones (e.g. friendly and annoyed), decide which one is most prominent.
+  Codes: (rather) neutral / (rather) thankful / (rather) friendly / (rather) annoyed / (rather) angry / hostile / other
+- content (S_2)
+  The content of the response email. If several codes apply, choose the most pre-dominant one. If several codes apply equally, separate them with semicolon.
+  Codes: explanation / dissent / question / request for help / feedback / expressing thank / complaint / authenticating sender / other
+
+Theme: Feedback
+- feedback_improvement (F_1)
+  Feedback mentioned in the response to improve further notifications. If several improvements are mentioned, each are separated by semicolon
+  Codes: problem other than described / group several emails / define the specific problem / include a self-service tool / personalize salutation / other
+
+Theme: Other
+- other (OTHER)
+  Other results that are not in the categories yet, but seem interesting for the analysis
+  open

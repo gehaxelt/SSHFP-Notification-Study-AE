@@ -1,0 +1,3 @@
+The first claim is to validate the sample domains datasets (Section 4.1 'domain sample') of our paper. 
+
+Since the domains itself are time-dependent and their availability might change over time, this repository provides the compressed datasets that were used as the basis in our paper.

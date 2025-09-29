@@ -1,0 +1,4 @@
+{"unix": 1693515418.3964028, "date": "2023-08-31 20:56:58.396384", "uuid": "71e4c255-6c66-40a3-a649-4287144bbdfc", "msg": "Website loaded without prefill", "type": "pageload", "domain": ""}
+{"unix": 1693515423.0681856, "date": "2023-08-31 20:57:03.068161", "uuid": "1916ff43-061a-4d58-a272-0a301547b54d", "msg": "Website loaded with prefill d=YOURDOMAIN", "type": "prefill", "domain": "YOURDOMAIN"}
+{"unix": 1693515425.426446, "date": "2023-08-31 20:57:05.426428", "uuid": "f21301a5-712e-41ae-97e3-9c127dcd23ca", "msg": "Scan started with prefill d=YOURDOMAIN", "type": "scan", "domain": "YOURDOMAIN"}
+{"unix": 1693515425.429107, "date": "2023-08-31 20:57:05.429096", "uuid": "f21301a5-712e-41ae-97e3-9c127dcd23ca", "msg": {"outstr": "Testing domain: YOURDOMAIN\n\nQuerying for SSHFP records...\nError: The domain YOURDOMAIN does not have any SSHFP records configured.\n", "result": {"domain": "YOURDOMAIN", "has_dns_sshfps": false}}, "type": "result", "domain": "YOURDOMAIN"}

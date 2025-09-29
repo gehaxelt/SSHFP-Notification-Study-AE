@@ -1,0 +1,3 @@
+type,domain,subdomain,hosts,ASN_IDs,ASN_names
+Fingerprints do not match,example.org,sub.example.org,23.215.0.133,24940,HETZNER-AS
+Fingerprints do not match,example.com,sub.example.com,23.192.228.84,24940,HETZNER-AS

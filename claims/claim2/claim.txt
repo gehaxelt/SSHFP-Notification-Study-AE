@@ -1,0 +1,3 @@
+The second claim is to validate the "analysis script" (Section 4.1 'notification sample') of our paper. 
+
+Again, since the scan results are time- or network dependent, this repository provides also the compressed datasets that were used as the basis in the paper.

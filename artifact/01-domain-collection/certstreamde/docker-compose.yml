@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  cerstream:
+    build: .
+    container_name: cerstream_runner
+    volumes:
+      - .:/app
+    tty: true
+    command: python 01-extract-domains.py

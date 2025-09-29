@@ -1,0 +1,11 @@
+main > .container {
+    padding: 60px 15px 0;
+}
+
+.center {
+    text-align: center
+}
+
+.accordion-header h2 {
+    font-size: 1.3rem;
+}

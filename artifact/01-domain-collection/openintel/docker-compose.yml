@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  openintel:
+    build: .
+    container_name: openintel_runner
+    volumes:
+      - .:/app
+    tty: true
+    command: >
+      sh -c "
+      ./01-extract-data.sh &&
+      python 02-extract-domains.py
+      "

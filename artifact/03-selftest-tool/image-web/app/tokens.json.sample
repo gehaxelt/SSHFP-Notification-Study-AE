@@ -1,0 +1,41 @@
+{
+  "tokens": {
+    "secrettoken1": {
+      "ids": [
+        "YOURDOMAIN.TLD",
+        "YOURDOMAIN2.TLD"
+      ],
+      "domains": [
+        "SUB1.YOURDOMAIN.TLD",
+        "SUB2.YOURDOMAIN.TLD",
+        "SUB3.YOURDOMAIN.TLD",
+        "SUB4.YOURDOMAIN.TLD",
+        "SUB1.YOURDOMAIN2.TLD",
+        "SUB2.YOURDOMAIN2.TLD",
+        "SUB3.YOURDOMAIN2.TLD",
+        "SUB4.YOURDOMAIN2.TLD"
+      ],
+      "group": "tool"
+    },
+    "secrettoken2": {
+      "ids": [
+        "DOMAIN1.TLD",
+        "DOMAIN2.TLD"
+      ],
+      "domains": [
+        "DOMAIN1.TLD",
+        "SUB1.DOMAIN1.TLD",
+        "DOMAIN2.TLD",
+        "SUB2.DOMAIN2.TLD"
+      ],
+      "group": "tool"
+    }
+  },
+  "groups": {
+    "tool": {
+      "views": [
+        "tool"
+      ]
+    }
+  }
+}

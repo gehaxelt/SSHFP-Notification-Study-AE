@@ -1,0 +1,5 @@
+# Python dependencies for the pre-scan scripts
+dnspython
+tldextract
+requests
+pyasn

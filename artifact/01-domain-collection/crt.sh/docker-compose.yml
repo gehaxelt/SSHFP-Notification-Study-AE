@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  crtsh:
+    build: .
+    container_name: crtsh_runner
+    volumes:
+      - .:/app
+    tty: true
+    command: >
+      sh -c "
+      python 01-query-crtsh.py &&
+      python 02-extract-domains.py
+      "

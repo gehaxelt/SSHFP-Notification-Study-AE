@@ -1,0 +1,3 @@
+The third claim is to validate the "selftest tool" (Section 4.3) of our paper. 
+
+Please note that the tool is interactive and the output of the selftest tool depends on the users' input.

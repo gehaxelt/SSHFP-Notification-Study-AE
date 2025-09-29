@@ -1,0 +1,75 @@
+# Filename: <repository name>-<branch>.yml
+version: "3.3"
+
+# Needed if you want to publish / route a webpage
+networks:
+  traefik-public:
+    external: true
+  overlay:
+
+volumes:
+  web-data:
+
+services:
+  web:
+    # Image name - even one from docker hub or your own with the convention: <repository name>-<branch>_<service name>:latest
+    image:  web-sshfp-selftest-tool-main_web:latest
+    # Needed if you want to publish / route a webpage
+    networks:
+      - traefik-public
+      - overlay
+    deploy:
+      labels:
+        # See also: https://doc.traefik.io/traefik/routing/routers/
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.http.routers.web-sshfp-selftest-tool-main-web-http.rule=Host(`[YOURDOMAIN]`)
+        - traefik.http.routers.web-sshfp-selftest-tool-main-web-http.entrypoints=http
+        - traefik.http.routers.web-sshfp-selftest-tool-main-web-https.rule=Host(`[YOURDOMAIN]`)
+        - traefik.http.routers.web-sshfp-selftest-tool-main-web-https.entrypoints=https
+        - traefik.http.routers.web-sshfp-selftest-tool-main-web-https.tls=true
+        - traefik.http.routers.web-sshfp-selftest-tool-main-web-https.middlewares=auth
+        - traefik.http.routers.web-sshfp-selftest-tool-main-web-https.tls.certresolver=le
+        - traefik.http.services.web-sshfp-selftest-tool-main-web.loadbalancer.server.port=8000
+        - traefik.http.middlewares.auth.basicauth.users=ssh:[YOURSTRONGPWHASH]
+    restart: "unless-stopped"
+    volumes:
+      # Volumes that are used in the image.
+      - <YOUR-PATH>/web-sshfp-selftest-tool-main/image-web/app:/usr/src/app:ro
+      - web-data:/data/:rw
+    env_file:
+      - /repos/web-sshfp-selftest-tool-main/environment-web.env
+
+  recursor:
+    image: pschiffe/pdns-recursor
+    networks:
+      - overlay
+    env_file:
+      - /repos/web-sshfp-selftest-tool-main/environment-recursor.env
+
+  dnssecrecursor:
+    image: pschiffe/pdns-recursor
+    networks:
+      - overlay
+    env_file:
+      - /repos/web-sshfp-selftest-tool-main/environment-recursor-dnssec.env
+
+  fa:
+    image: httpd:2.4
+    volumes:
+      - web-data:/usr/local/apache2/htdocs:ro
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.http.routers.web-sshfp-selftest-tool-main-fa-http.rule=Host(`[YOURHOST]`)
+        - traefik.http.routers.web-sshfp-selftest-tool-main-fa-http.entrypoints=http
+        - traefik.http.routers.web-sshfp-selftest-tool-main-fa-https.rule=Host(`[YOURHOST]`)
+        - traefik.http.routers.web-sshfp-selftest-tool-main-fa-https.entrypoints=https
+        - traefik.http.routers.web-sshfp-selftest-tool-main-fa-https.tls=true
+        - traefik.http.routers.web-sshfp-selftest-tool-main-fa-https.middlewares=auth2
+        - traefik.http.routers.web-sshfp-selftest-tool-main-fa-https.tls.certresolver=le
+        - traefik.http.services.web-sshfp-selftest-tool-main-fa.loadbalancer.server.port=80
+        - traefik.http.middlewares.auth2.basicauth.users=ssh:[YOURSTRONGPWHASH]
+    networks:
+      - traefik-public

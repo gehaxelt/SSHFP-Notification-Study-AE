@@ -1,0 +1,59 @@
+Attaching to analysis-1
+analysis-1  | TOTAL # OF NO SSHFP ERRORS: 9880
+analysis-1  | NO SSHFP ERRORS # OF DOMAINS: 9880
+analysis-1  | AVERAGE NO SSHFP ERRORS per Domain: 1.0
+analysis-1  | NO SSHFP CLASSES VALUES (avg, median, min, max): 9880, 9880, 9880, 9880
+analysis-1  | NO SSHFP CLASSES KEYS (avg, median, min, max): 1, 1, 1, 1
+analysis-1  | NO SSHFP FLD COUNTER values (unique flds, total count, avg, median, 10 most_common): 9880, 9880, 1, 1.0, [('google.com', 1), ('netflix.com', 1), ('youtube.com', 1), ('facebook.com', 1), ('microsoft.com', 1), ('instagram.com', 1), ('twitter.com', 1), ('linkedin.com', 1), ('tmall.com', 1), ('apple.com', 1)] 
+analysis-1  | NO SSHFP UNIQUE DOMAIN COUNTER values (unique domains, total count, avg, median, 10 most_common): 9880, 9880, 1, 1.0, [('google.com', 1), ('netflix.com', 1), ('youtube.com', 1), ('facebook.com', 1), ('microsoft.com', 1), ('instagram.com', 1), ('twitter.com', 1), ('linkedin.com', 1), ('tmall.com', 1), ('apple.com', 1)] 
+analysis-1  | 
+analysis-1  | TOTAL # OF NO ANSWER ERRORS: 79
+analysis-1  | NO ANSWER ERRORS # OF DOMAINS: 79
+analysis-1  | AVERAGE NO ANSWER ERRORS per Domain: 1.0
+analysis-1  | NO ANSWER CLASSES VALUES (avg, median, min, max): 79, 79, 79, 79
+analysis-1  | NO ANSWER CLASSES KEYS (avg, median, min, max): 1, 1, 1, 1
+analysis-1  | NO ANSWER FLD COUNTER values (unique flds, total count, avg, median, 10 most_common): 79, 79, 1, 1, [('tianya.cn', 1), ('miitbeian.gov.cn', 1), ('miibeian.gov.cn', 1), ('adsymptotic.com', 1), ('sq.cn', 1), ('ai.marketing', 1), ('ssa.gov', 1), ('dedecms.com', 1), ('000webhostapp.com', 1), ('morningpost.com.cn', 1)] 
+analysis-1  | NO ANSWER UNIQUE DOMAIN COUNTER values (unique domains, total count, avg, median, 10 most_common): 79, 79, 1, 1, [('tianya.cn', 1), ('miitbeian.gov.cn', 1), ('miibeian.gov.cn', 1), ('adsymptotic.com', 1), ('sq.cn', 1), ('ai.marketing', 1), ('ssa.gov', 1), ('dedecms.com', 1), ('000webhostapp.com', 1), ('morningpost.com.cn', 1)] 
+analysis-1  | 
+analysis-1  | TOTAL # OF NO QUERYNAME ERRORS: 36
+analysis-1  | NO QUERYNAME ERRORS # OF DOMAINS: 36
+analysis-1  | AVERAGE NO QUERYNAME ERRORS per Domain: 1.0
+analysis-1  | NO QUERYNAME CLASSES VALUES (avg, median, min, max): 36, 36, 36, 36
+analysis-1  | NO QUERYNAME CLASSES KEYS (avg, median, min, max): 1, 1, 1, 1
+analysis-1  | NO QUERYNAME FLD COUNTER values (unique flds, total count, avg, median, 10 most_common): 36, 36, 1, 1.0, [('cnbeta.com', 1), ('fadverdirect.com', 1), ('polyfill.io', 1), ('51auto.com', 1), ('tinyurl.is', 1), ('postimg.org', 1), ('lieyunwang.com', 1), ('lukomol.com', 1), ('europa.eu.int', 1), ('download-step1.com', 1)] 
+analysis-1  | NO QUERYNAME UNIQUE DOMAIN COUNTER values (unique domains, total count, avg, median, 10 most_common): 36, 36, 1, 1.0, [('cnbeta.com', 1), ('fadverdirect.com', 1), ('polyfill.io', 1), ('51auto.com', 1), ('tinyurl.is', 1), ('postimg.org', 1), ('lieyunwang.com', 1), ('lukomol.com', 1), ('europa.eu.int', 1), ('download-step1.com', 1)] 
+analysis-1  | 
+analysis-1  | 
+analysis-1  | 
+analysis-1  | TOTAL # OF FOUND_SSHFP: 5
+analysis-1  | FOUND_SSHFP # OF DOMAINS: 5
+analysis-1  | AVERAGE FOUND_SSHFP per Domain: 1.0
+analysis-1  | FOUND_SSHFP CLASSES VALUES (avg, median, min, max): 5, 5, 5, 5
+analysis-1  | FOUND_SSHFP CLASSES KEYS (avg, median, min, max): 1, 1, 1, 1
+analysis-1  | FOUND_SSHFP FLD COUNTER values (unique flds, total count, avg, median, 10 most_common): 5, 5, 1, 1, [('gnu.org', 1), ('sourceware.org', 1), ('eu.org', 1), ('fsf.org', 1), ('ptt.cc', 1)] 
+analysis-1  | FOUND_SSHFP UNIQUE DOMAIN COUNTER values (unique domains, total count, avg, median, 10 most_common): 5, 5, 1, 1, [('gnu.org', 1), ('sourceware.org', 1), ('eu.org', 1), ('fsf.org', 1), ('ptt.cc', 1)] 
+analysis-1  | 
+analysis-1  | Counter All domains (0, uniq: 0): Counter()
+analysis-1  | -> Domains: 
+analysis-1  | 
+analysis-1  | 
+analysis-1  | Counter All FLDs (0, uniq: 0): Counter()
+analysis-1  | -> FLDs: 
+analysis-1  | 
+analysis-1  | 
+analysis-1  | Counter InsecureMatch domains (0, uniq: 0): Counter()
+analysis-1  | -> Domains: 
+analysis-1  | 
+analysis-1  | 
+analysis-1  | Counter InsecureMatch FLDs (0, uniq: 0): Counter()
+analysis-1  | -> FLDs: 
+analysis-1  | 
+analysis-1  | 
+analysis-1  | Counter NoMatch domains (0, uniq: 0): Counter()
+analysis-1  | -> Domains: 
+analysis-1  | 
+analysis-1  | 
+analysis-1  | Counter NoMatch FLDs (0, uniq: 0): Counter()
+analysis-1  | -> FLDs: 
+analysis-1  | 
+[Kanalysis-1 exited with code 0

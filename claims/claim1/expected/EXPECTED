@@ -1,0 +1,50 @@
+Running "./run.sh" shall report the same numbers as stated in Section 4.1 of our paper.
+
+$>./run.sh
+# Openintel
+## Number of subdomains:
+101322
+## Number of domains:
+41206
+
+
+# CRT.sh
+## Number of subdomains
+260158
+## Number of domains
+117009
+
+
+# CertStream
+## Number of subdomains
+4594323
+## Number of domains
+2202608
+
+
+# Censys
+## Number of subdomains
+31101221
+## Number of domains
+9975643
+
+
+# Merged (Total)
+## Number of subdomains
+36057024
+## Number of domains
+12336466
+
+
+# Merged (Unique)
+## Number of subdomains
+31135653
+## Number of domains
+9977630
+
+
+# Existing
+## Number of subdomains
+26576356
+## Number of domains
+7970555

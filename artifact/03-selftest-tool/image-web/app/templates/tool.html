@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Tool |SSHFP Security Notification Tool{% endblock %}
+
+{% block content %}
+    <h1 class="mt-5 center">{{"Self-test"|t}}-Tool</h1>
+    <p>
+      {{"disclaimer"|t|safe}}
+    </p>
+    {% if prefill %}
+      <form action="/tool?d={{prefill|b64encode}}" method="post">
+    {% else %}
+      <form action="/tool" method="post">
+    {% endif %}
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="domain" class="col-form-label">Domain</label>
+        </div>
+        <div class="col-auto">
+          {% if prefill %}
+            <input type="text" id="domain" name="domain" class="form-control" value="{{ prefill|e }}">
+          {% else %}
+            <input type="text" id="domain" name="domain" class="form-control">
+          {% endif %}
+        </div>
+        <div class="col-auto">
+          <button type="submit" name="check" class="btn btn-primary">{{"Check now"|t}}</button>
+        </div>
+      </div>
+    </form>
+  {% if output and result['show'] %}
+  <hr>
+  <p class="alert alert-warning">
+    {{"disclaimer_results"|t|safe}}
+  </p>
+  <div class="accordion" id="accordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="results-heading">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#results-data" aria-expanded="false" aria-controls="results-data">
+          <h2>{{"Results for"|t}} {{ result['raw_domain'] }}</h2>
+        </button>
+      </h2>
+      <div id="results-data" class="accordion-collapse collapse show" aria-labelledby="results-heading">
+        <div class="accordion-body">
+          <table class="table table-fixed">
+            <thead>
+              <tr>
+                <th width="15%">{{"Test"|t}}</th>
+                <th width="25%">{{"Result"|t}}</th>
+                <th width="60%">{{"Description"|t}}</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>DNSSEC {{"Support"|t}}</td>
+              <td>
+                {% if result['has_dnssec'] %}
+                  <span class="text-success">{{"True"|t}}</span>
+                {% else %}
+                  <span class="text-danger">{{"False"|t}}</span>
+                {% endif %}
+              </td>
+              <td>{{"SSHFP records rely on a secure transport over DNS. DNSSEC guarantees authenticity and thus should be used"|t}}.</td>
+            </tr>
+            <tr>
+              <td>DNS SSHFP {{"records"|t}}</td>
+              <td>
+                {% if not result['has_dns_sshfps'] %}
+                  <span class="text-danger">{{"No records"|t}}</span>
+                {% else %}
+                  {% if result['dns_sshfps_valid'] %}
+                    <span class="text-success">{{ result['dns_sshfps_parsed']|length }}/{{ result['dns_sshfps_raw']|length }} {{"SSHFP records parsable"|t}}.</span>
+                  {% else %}
+                    <span class="text-danger">{{ result['dns_sshfps_parsed']|length }}/{{ result['dns_sshfps_raw']|length }} {{"SSHFP records parsable"|t}}.</span>
+                  {% endif %}
+                {% endif %}
+              </td>
+              <td>
+                {{"Valid SSHFP DNS records need to be set for host/domain in order to use DNS-based HostKeyVerification"|t}}.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                IPv4 {{"Servers"|t}}
+              </td>
+              <td>
+                {% if not result['server_ips'] %}
+                  <span class="text-danger">{{"No servers found"|t}}.</span>
+                {% else %}
+                  <span class="text-success">{{result['server_ips']|length}} {{"server(s)"|t}}</span>
+                {% endif %}
+              </td>
+              <td>
+                {{"Our analysis compares DNS SSHFP records with server-side records of publicly reachable IPv4-based servers"|t}}.
+              </td>
+            </tr>
+            {% for ip in result['server_ips'] %}
+              <tr>
+                <td>Server: {{ ip }}</td>
+                <td>
+                  {% if not result['server_sshfps'][ip] %}
+                    <span class="text-danger">{{"Failed to obtain SSH fingerprints"|t}}.</span>
+                  {% else %}
+                    <ul>
+                      <li>
+                        {% if result['server_sshfps'][ip]['records_valid'] %}
+                          <span class="text-success">{{ result['server_sshfps'][ip]['parsed']|length }}/{{ result['server_sshfps'][ip]['raw']|length }} {{"SSH fingerprints parsable"|t}}.</span>
+                        {% else %}
+                          <span class="text-danger">{{ result['server_sshfps'][ip]['parsed']|length }}/{{ result['server_sshfps'][ip]['raw']|length }} {{"SSH fingerprints parsable"|t}}.</span>
+                        {% endif %}
+                      </li>
+                      <li>
+                        {% if not result['server_sshfps'][ip]['matching'] %}
+                          <span class="text-danger">{{result['server_sshfps'][ip]['matching']|length}}/{{result['server_sshfps'][ip]['parsed']|length}} {{"SSH fingerprints match"|t}}.</span>
+                        {% else %}
+                          {% if result['server_sshfps'][ip]['matching']|length < result['server_sshfps'][ip]['parsed']|length %}
+                            <span class="text-warning">{{result['server_sshfps'][ip]['matching']|length}}/{{result['server_sshfps'][ip]['parsed']|length}} {{"SSH fingerprints match"|t}}.</span>
+                          {% else %} 
+                            <span class="text-success">{{result['server_sshfps'][ip]['matching']|length}}/{{result['server_sshfps'][ip]['parsed']|length}} {{"SSH fingerprints match"|t}}.</span>
+                          {% endif %}
+                        {% endif %}
+                      </li>
+                    </ul>
+                  {% endif %}
+                </td>
+                <td>{{"To ensure that DNS-based HostKeyVerification is always possible, all server side SSH fingerprints MUST match with a SSHFP DNS record. Otherwise a SSH client could choose a algorithm and hashing combination for which no matching fingerprint is found in the DNS"|t}}.</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="logaccordion-heading">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#logaccordion-data" aria-expanded="false" aria-controls="logaccordion-data">
+          <h2>{{"Analysis Details"|t}}</h2>
+        </button>
+      </h2>
+      <div id="logaccordion-data" class="accordion-collapse collapse" aria-labelledby="logaccordion-heading">
+        <div class="accordion-body">
+<pre>
+{{ output }}
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}

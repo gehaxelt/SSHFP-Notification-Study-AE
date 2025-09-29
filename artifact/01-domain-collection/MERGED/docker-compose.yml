@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  mergepipeline:
+    build: .
+    container_name: merge_runner
+    volumes:
+      - .:/app
+    tty: true
+    command: >
+      sh -c "
+      python 01-make-unique.py &&
+      python 02-query-existence.py &&
+      python 03-filter-existence.py &&
+      python 04-query-existence-slow.py &&
+      python 05-filter-existence.py &&
+      python 06-existing-domains-to-unique-domains.py
+      "

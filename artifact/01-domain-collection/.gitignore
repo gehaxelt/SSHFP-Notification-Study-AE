@@ -1,0 +1,5 @@
+# Large files
+MERGED/06-existing-domains.txt.lzma
+MERGED/extracted-domains.txt.lzma
+MERGED/unique-extracted-domains.txt.lzma
+censys/extracted-domains.txt.lzma

@@ -1,0 +1,6 @@
+This folder contains the logs and the analysis files for a scan of the reduced "domains.txt" on September 13.
+Since scan results may be time- or network dependent, you might not get the exact same results.
+
+Thus, we provide a compressed ZIP archive (logs-analysis-10k-domains.zip) of the collector/data/logs/ and collector/data/analysis/*_current/ folders that should exist after a successful 10k domains.txt scan, and analysis script execution.
+
+Furthermore, we include the output of our analysis-script (last step in ./run.sh) as "analysis.output".

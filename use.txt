@@ -1,0 +1,6 @@
+# Intended use + limitations
+
+The provided data shall be used to reprocude our results from the paper "Fix it - If you Can! Towards Understanding the Impact of Tool Support and Domain Owners’ Reactions to SSHFP Misconfigurations".
+
+There are some limitations with the data we can provide in the repository due to privacy/anonymity concerns. Thus, we only provide the ground-truth data (i.e. domains), but not the intermediate or final result data sets, which would include the affected (vulnerable) domains.
+However, we provided dummy data sets in all cases, to ensure that the analysis scripts will run with the intermediate data.

@@ -1,0 +1,64 @@
+#0 building with "default" instance using docker driver
+
+#1 [gen-tokens internal] load build definition from Dockerfile
+#1 transferring dockerfile: 520B done
+#1 DONE 0.0s
+
+#2 [gen-tokens internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.5s
+
+#3 [gen-tokens internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [gen-tokens 1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088a35e048bbabd81212d73c2323aed38c64f
+#4 DONE 0.0s
+
+#5 [gen-tokens internal] load build context
+#5 transferring context: 37B done
+#5 DONE 0.0s
+
+#6 [gen-tokens 3/5] RUN apt-get update && apt-get install -y --no-install-recommends       ca-certificates build-essential    && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [gen-tokens 4/5] COPY requirements.txt /tmp/requirements.txt
+#7 CACHED
+
+#8 [gen-tokens 2/5] WORKDIR /app
+#8 CACHED
+
+#9 [gen-tokens 5/5] RUN pip install --no-cache-dir -r /tmp/requirements.txt
+#9 CACHED
+
+#10 [gen-tokens] exporting to image
+#10 exporting layers done
+#10 writing image sha256:71ef74e58331e7ad865b5cf0cf8d98743d737b8c1321bcb5ea1de803ed29b311 done
+#10 naming to docker.io/library/pre-scan-gen-tokens done
+#10 DONE 0.0s
+
+#11 [gen-tokens] resolving provenance for metadata file
+#11 DONE 0.0s
+Attaching to gen-tokens-1
+gen-tokens-1  | {
+gen-tokens-1  |   "zx94f21": {
+gen-tokens-1  |     "ids": [
+gen-tokens-1  |       "example.org"
+gen-tokens-1  |     ],
+gen-tokens-1  |     "domains": [
+gen-tokens-1  |       "example.org",
+gen-tokens-1  |       "sub2.example.org"
+gen-tokens-1  |     ],
+gen-tokens-1  |     "group": "tool"
+gen-tokens-1  |   },
+gen-tokens-1  |   "et68q81": {
+gen-tokens-1  |     "ids": [
+gen-tokens-1  |       "example.com"
+gen-tokens-1  |     ],
+gen-tokens-1  |     "domains": [
+gen-tokens-1  |       "example.com",
+gen-tokens-1  |       "sub1.example.com"
+gen-tokens-1  |     ],
+gen-tokens-1  |     "group": "tool"
+gen-tokens-1  |   }
+gen-tokens-1  | }
+[Kgen-tokens-1 exited with code 0

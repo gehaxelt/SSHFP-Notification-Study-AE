@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#7952b3">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/custom.css" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+    
+    <header>
+      {% block navbar %}
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">SSHFP Security Notification Tool</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="/tool">{{"Self-test"|t}}-Tool</a>
+                </li>
+                {% if false %}
+                  {% if g.token|can_view('faq') %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/faq">{{ "FAQ"|t }}</a>
+                  </li>
+                  {% endif %}
+                {% endif %}
+                {% if g.token and g.token|can_view('logout') %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout" tabindex="-1">{{ "Logout"|t }}</a>
+                </li>
+                {% endif %}
+                {% if g.token|can_view('legal') %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/legal" tabindex="-1">{{ "Legal"|t }}</a>
+                </li>
+                {% endif %}
+
+              </ul>
+              <ul class="navbar mb-2 mb-md-0 navbar-right">
+                <li class="nav-item">
+                  <a class="nav-link" href="/language?lang=de">DE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/language?lang=en">EN</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      {% endblock %}
+    </header>
+
+    <main class="flex-shrink-0">
+      <div class="container">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      {% block content %}
+      {% endblock %}
+    </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+      {% block footer %}
+        <div class="container">
+          <span class="text-muted">{{ "A research project"|t}}.</span>
+        </div>
+      {% endblock %}
+    </footer>
+
+    <script src="/static/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

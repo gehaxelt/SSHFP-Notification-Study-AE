@@ -1,0 +1,48 @@
+{
+  "match_insecure": {
+    "0": {
+      "domain": "sub1.example.com",
+      "hosts": [
+        "23.215.0.138"
+      ],
+      "dns_records": [
+        "RSA,SHA1,cd0176373d488e5057fee431dbd7ba6089b5ea1f"
+      ],
+      "is_authentic": false,
+      "23.215.0.138": {
+        "ok": [
+          "RSA,SHA1,cd0176373d488e5057fee431dbd7ba6089b5ea1f"
+        ],
+        "not ok": [],
+        "not ok: correct algo AND type, wrong fp": [],
+        "not ok: correct fp AND type, wrong algo": [],
+        "not ok: correct fp AND algo, wrong type": [],
+        "not ok: correct fp, wrong algo OR type": []
+      }
+    }
+  },
+  "match_no": {
+    "1": {
+      "domain": "sub2.example.org",
+      "hosts": [
+        "23.215.0.132"
+      ],
+      "dns_records": [
+        "RSA,SHA1,cd0176373d488e5057fee431dbd7ba6089b5ea1f"
+      ],
+      "is_authentic": true,
+      "23.215.0.132": {
+        "ok": [],
+        "not ok": [
+          "RSA,SHA1,e10a1678065b1344e5ff976acaf7d569d9a969ad"
+        ],
+        "not ok: correct algo AND type, wrong fp": [
+          "RSA,SHA1,e10a1678065b1344e5ff976acaf7d569d9a969ad"
+        ],
+        "not ok: correct fp AND type, wrong algo": [],
+        "not ok: correct fp AND algo, wrong type": [],
+        "not ok: correct fp, wrong algo OR type": []
+      }
+    }
+  }
+}

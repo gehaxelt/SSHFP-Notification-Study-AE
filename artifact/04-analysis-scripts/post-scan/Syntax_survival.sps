@@ -1,0 +1,30 @@
+﻿* Encoding: UTF-8.
+DATASET ACTIVATE DataSet2.
+
+KM survival_time BY group_numerical
+  /STATUS=event(1)
+  /PRINT TABLE MEAN
+  /PLOT SURVIVAL
+  /TEST LOGRANK
+  /COMPARE OVERALL POOLED.
+
+KM survival_time BY group_sender
+  /STATUS=event(1)
+  /PRINT TABLE MEAN
+  /PLOT SURVIVAL
+  /TEST LOGRANK
+  /COMPARE OVERALL POOLED.
+
+KM survival_time BY group_tool
+  /STATUS=event(1)
+  /PRINT TABLE MEAN
+  /PLOT SURVIVAL
+  /TEST LOGRANK
+  /COMPARE OVERALL POOLED.
+
+KM survival_time BY group_toolall
+  /STATUS=event(1)
+  /PRINT TABLE MEAN
+  /PLOT SURVIVAL
+  /TEST LOGRANK
+  /COMPARE OVERALL POOLED.

@@ -1,0 +1,6 @@
+This claim includes several expected outputs that were part of the post analysis of our data:
+1) Based on the serverlog_analysis_notifications.json, the notification-data.csv shall be created.
+2) The files 'dataset_1_remediation-time_anonymous' and 'dataset_1_remediation-time_anonymous' can be used to calculate the results of our ANOVAs and the Survival Analysis (use 04_analysis-scrips/post-scan/Syntax_param.sps and 04_analysis-scrips/post-scan/Syntax_survival.sps ).
+3) The files 'dataset_1_remediation-status_anonymous' and 'dataset_1_remediation-status_anonymous' can be used to calculate the results of our Chi^2 tests (use 04_analysis-scrips/post-scan/Syntax_non-param.sps ).
+
+Please note that for 2) and 3) the output from the scanning tool (artifact 02) should be used. However, as these data are time-dependent, and, furthermore, contain personally identifiable information of the domain owners we notified, we provided dummy files that can be used to reproduce our analysis.

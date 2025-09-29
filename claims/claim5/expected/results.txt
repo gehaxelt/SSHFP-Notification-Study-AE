@@ -1,0 +1,45 @@
+Theme: Background
+- ownership
+  professional: 2, private: 1, volunteer: 3
+- involvement maintenance
+  operates website with support: 1
+- motivation
+  privacy/compliance/security is important: 4
+
+Theme: Incorrect Technical Implementation
+- incorrect technical implementation
+  incorrect implementation: 18, incomplete implementation: 13, implementation is for their use case correct: 9, other: 3
+
+Theme: Reasons for lack of Remediation
+- lack of awareness
+  not an issue: 16
+- problem outside of influence
+  problem lies with external service provider: 5, other: 2
+- reliance on others' judgements
+  default settings taken: 1
+- deliberate lack of maintenance
+  website has no priority: 2, other: 21
+
+Theme: Approaches
+- implementation
+  implement changes themselves: 8, delegate implementation of changes: 4, do not implement changes: 16, other: 13 
+    - kind of support
+      technical support: 2
+    - support instance
+      study organizer: 2
+
+Theme: Challenges
+- lack of resources
+  personal reasons: 8, website is not daily business: 1, other: 3 
+- lack of technical knowledge
+  lack of technical knowledge: 1
+- problems with code
+  error cannot be found: 1, other: 1
+- dependencies and slow processes in organizations
+  complex coordination with other stakeholders: 1, other entity needed for fix: 4
+
+Theme: Sentiment Analysis
+- tone
+  (rather) neutral: 8, (rather) thankful: 13, (rather) friendly: 23, (rather) annoyed: 4
+- content
+  explanation: 23, dissent: 5, question: 10, feedback: 4, expressing thank: 6

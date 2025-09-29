@@ -1,0 +1,47 @@
+version: '3.7'
+# Only fields image, build, context, dockerfile are considered by server (it runs a docker-compose build only)
+# Check docker-stack for further options - however this file is only a copy of original, changes must be taken over manually
+
+# volumes:
+#   web-data:
+#     driver: local
+#     driver_opts:
+#       type: mount
+#       o: bind
+#       device: $PWD/web-data/
+
+services:
+  web:
+    # image: <repository-name>-<branch>_<service-name>:latest
+    image: web-sshfp-selftest-tool-main_web
+    build:
+      context: ./image-web
+      dockerfile: Dockerfile
+    restart: "unless-stopped"
+    volumes:
+      - ./image-web/app:/usr/src/app
+      - ./web-data:/data/
+    ports:
+      - 127.0.0.1:8000:8000
+    depends_on:
+      - recursor
+      - dnssecrecursor
+    env_file:
+      - ./environment-web.env
+
+  recursor:
+    image: pschiffe/pdns-recursor
+    env_file:
+      - ./environment-recursor.env
+
+  dnssecrecursor:
+    image: pschiffe/pdns-recursor
+    env_file:
+      - ./environment-recursor-dnssec.env
+
+  file-access:
+    image: httpd:2.4
+    ports:
+      - 127.0.0.1:8001:80
+    volumes:
+      - ./web-data:/usr/local/apache2/htdocs:ro

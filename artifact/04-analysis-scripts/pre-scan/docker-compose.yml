@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  analyze-logs:
+    build: .
+    volumes:
+      - ./:/app
+    command: python -u 01-analyze-serverlog-analysis-notifications.py
+    environment:
+      PYTHONPATH: /app
+
+  find-cnames:
+    build: .
+    volumes:
+      - ./:/app
+    command: python -u 02-find-cnames.py
+    environment:
+      PYTHONPATH: /app
+
+  check-securitytxt:
+    build: .
+    volumes:
+      - ./:/app
+    command: python -u 03-check-securitytxt.py
+    environment:
+      PYTHONPATH: /app
+
+  gen-tokens:
+    build: .
+    volumes:
+      - ./:/app
+    command: python -u 04-gen-tokens.py
+    environment:
+      PYTHONPATH: /app
+
